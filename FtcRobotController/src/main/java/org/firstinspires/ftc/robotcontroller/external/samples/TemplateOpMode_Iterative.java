@@ -33,15 +33,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.robotcontroller.external.samples;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
@@ -122,4 +117,34 @@ public class TemplateOpMode_Iterative extends OpMode
     public void stop() {
     }
 
+    /**
+     * Created by Juan Rivera on 9/16/2016.
+     */
+    public abstract static class TestDriveLinear extends OpMode{
+        //motors
+        DcMotor motorRight;
+       // DcMotor motorLeft;
+
+        public void start (){
+            //mapping out the motors
+            motorRight = hardwareMap.dcMotor.get("motor_1");
+         //   motorLeft = hardwareMap.dcMotor.get("motor_2");
+        }
+        public void loop () {
+            //throttle and direction
+            float throttle = -gamepad1.left_stick_y;
+            float direction = gamepad1.left_stick_x;
+            //tank drive calculations
+            float right = throttle - direction;
+            float left = throttle + direction;
+
+            //setting the motor powers
+            motorRight.setPower(right);
+          //  motorLeft.setPower(left);
+
+
+        }
+
+
+    }
 }
