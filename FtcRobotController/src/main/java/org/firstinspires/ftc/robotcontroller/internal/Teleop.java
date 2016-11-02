@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
- * Created by Juan Rivera + Joshua Young on 9/16/2016.
+ * Created by Juan Rivera + Joshua Young  on 9/16/2016.
  */
 //change that needs so i can push it succesfully
 public class Teleop extends OpMode {
@@ -43,16 +43,14 @@ public class Teleop extends OpMode {
         float right = throttle - direction;
         float left = throttle + direction;
 
-        //Setting the Motor Power
+        //Setting the Motor Power for wheels
         Right.setPower(right);
         Left.setPower(left);
 
         //Shooter...
-        //Making the shot like kobe...
-        float kobe = gamepad2.right_trigger;
-        //Shooting...
-        Shooter.setPower(kobe);
-
+        if (gamepad2.right_trigger){
+            Shooter.setPower(1.0);
+        }
 
         //Intake...
         if (gamepad2.x) {
@@ -67,12 +65,12 @@ public class Teleop extends OpMode {
         //shooting command that opens servo and shoots balls and then closes servo
         if (gamepad2.a) {
             Meatball.setPosition(MAX_POS); // Sets the Meatball servo all the way opn
-            Shooter.setPower(kobe);
+            Shooter.setPower(1.0);
             try {
-                Thread.sleep(7000);      //
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                Thread.sleep(7000);      //The program is already shooting so this makes a delay
+            } catch (InterruptedException e) { //and then after the delay it will stop shooting
+                e.printStackTrace();     //and will put down the meatball maker (the servo to block
+            }                            //the balls so we can load them) and ends the command group
             Shooter.setPower(0.0);
             Meatball.setPosition(MIN_POS);
 

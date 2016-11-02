@@ -56,8 +56,8 @@ public class TestMaxSpeed extends LinearOpMode
         // Initialize our hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names you assigned during the robot configuration
         // step you did in the FTC Robot Controller app on the phone.
-        this.motorLeft = this.hardwareMap.dcMotor.get("motorLeft");
-        this.motorRight = this.hardwareMap.dcMotor.get("motorRight");
+        this.motorLeft = this.hardwareMap.dcMotor.get("motor_1");
+        this.motorRight = this.hardwareMap.dcMotor.get("motor_2");
 
         // Configure the knobs of the hardware according to how you've wired your robot.
         DcMotor.RunMode mode = DcMotor.RunMode.RUN_USING_ENCODER;

@@ -35,8 +35,6 @@ import com.google.blocks.ftcrobotcontroller.runtime.BlocksOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
 import com.qualcomm.robotcore.eventloop.opmode.AnnotatedOpModeRegistrar;
-import org.firstinspires.ftc.robotcontroller.external.samples.ConceptNullOp;
-import org.firstinspires.ftc.robotcontroller.external.samples.TemplateOpMode_Iterative;
 
 /**
  * {@link FtcOpModeRegister} is responsible for registering opmodes for use in an FTC game.
@@ -45,15 +43,16 @@ import org.firstinspires.ftc.robotcontroller.external.samples.TemplateOpMode_Ite
 public class FtcOpModeRegister implements OpModeRegister {
 
     /**
-    *Created By Juan "Young Hung " Rivera Josh "Harambe" Young and Andreas Calcano
+    *Created By Juan "Young Hung " Rivera Josh "Harambe" Young
      */
     public void register(OpModeManager manager) {
 
         /**
          * Register OpModes implemented in the Blocks visual programming language.
          */
-        manager.register("TestDriveLinear",TemplateOpMode_Iterative.TestDriveLinear.class);
+        
         BlocksOpMode.registerAll(manager);
+        manager.register("MemeBot", Teleop.class);
 
         /**
          * Register OpModes that use the annotation-based registration mechanism.
