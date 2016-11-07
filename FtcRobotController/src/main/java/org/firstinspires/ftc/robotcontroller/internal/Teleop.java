@@ -30,7 +30,7 @@ public class Teleop extends OpMode {
         Meatball = hardwareMap.servo.get("Meatball");
 
     }
-
+//  //all the teleop commands for both gamepads
     @Override
     public void loop() {
 
@@ -48,9 +48,9 @@ public class Teleop extends OpMode {
         Left.setPower(left);
 
         //Shooter...
-        if (gamepad2.right_trigger){
-            Shooter.setPower(1.0);
-        }
+        float kobe = gamepad2.right_trigger;
+            Shooter.setPower(kobe);
+
 
         //Intake...
         if (gamepad2.x) {
@@ -67,9 +67,9 @@ public class Teleop extends OpMode {
             Meatball.setPosition(MAX_POS); // Sets the Meatball servo all the way opn
             Shooter.setPower(1.0);
             try {
-                Thread.sleep(7000);      //The program is already shooting so this makes a delay
-            } catch (InterruptedException e) { //and then after the delay it will stop shooting
-                e.printStackTrace();     //and will put down the meatball maker (the servo to block
+                Thread.sleep(7000);      //<---The program is already shooting so this makes a 7 second delay
+            } catch (InterruptedException e) { //second and then after the delay it will stop shooting
+                e.printStackTrace();     //shooting and will put down the meatball maker (the servo to block
             }                            //the balls so we can load them) and ends the command group
             Shooter.setPower(0.0);
             Meatball.setPosition(MIN_POS);
