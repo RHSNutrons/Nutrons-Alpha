@@ -53,6 +53,8 @@ public class FtcOpModeRegister implements OpModeRegister {
         
         BlocksOpMode.registerAll(manager);
         manager.register("MemeBot", Teleop.class);
+        manager.register("AutoBot", Autonomous.class);
+        manager.register("CacoonBot", Teleop.class);
 
         /**
          * Register OpModes that use the annotation-based registration mechanism.
